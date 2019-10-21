@@ -1,0 +1,54 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+
+    defaultConfig {
+        minSdkVersion buildConfig.minSdkVersion
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation deps.fileTree
+    implementation deps.kotlinStdlib
+//    implementation deps.androidXAppCompat
+//    implementation deps.androidXCore
+
+    // Retrofit2
+    implementation deps.retroFit
+    implementation deps.retroFitConverterGson
+    implementation deps.retroFitAdapterRxJava
+
+    // OkHttp3
+    implementation deps.okHttp3
+    implementation deps.okHttp3LoggingInterceptor
+
+    // RxJava
+    implementation deps.rxJava
+    implementation deps.rxAndroid
+    implementation deps.rxKotlin
+
+    // JSoup
+    implementation deps.jSoup
+
+    testImplementation deps.junit
+    androidTestImplementation deps.androidXTestRunner
+    androidTestImplementation deps.androidXTestEspresso
+}

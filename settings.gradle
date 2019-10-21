@@ -1,0 +1,2 @@
+include ':app', ':instagramdownloader'
+rootProject.name='Instagram Downloader'

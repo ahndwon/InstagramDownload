@@ -1,0 +1,72 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.buildConfig = [
+            'minSdkVersion': 14,
+            'compileSdkVersion': 28,
+    ]
+
+    ext.kotlin_version = '1.3.50'
+    repositories {
+        google()
+        jcenter()
+
+    }
+
+    ext.deps = [
+            'fileTree': fileTree(dir: 'libs', include: ['*.jar']),
+            'kotlinStdlib': "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
+
+            'androidXAnnotations': 'androidx.annotation:annotation:1.0.0',
+            'androidXAppCompat': 'androidx.appcompat:appcompat:1.0.0',
+            'androidXCore': 'androidx.core:core-ktx:1.0.0',
+            'androidXDrawerLayout': 'androidx.drawerlayout:drawerlayout:1.0.0',
+            'androidXConstraintLayout': 'androidx.constraintlayout:constraintlayout:1.1.3',
+            'androidXLeanback': 'androidx.leanback:leanback:1.0.0',
+            'androidXRecyclerView': 'androidx.recyclerview:recyclerview:1.0.0',
+            'androidXSlidingPaneLayout': 'androidx.slidingpanelayout:slidingpanelayout:1.0.0',
+            'androidXSwipeRefreshLayout': 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0',
+            'androidXViewPager': 'androidx.viewpager:viewpager:1.0.0',
+
+            'androidXTestRunner': 'androidx.test:runner:1.1.1',
+            'androidXTestRules': 'androidx.test:rules:1.1.1',
+            'androidXTestEspresso': 'androidx.test.espresso:espresso-core:3.2.0',
+            'androidXTestEspressoContrib': 'androidx.test.espresso:espresso-contrib:3.1.1',
+
+            'googleMaterial': 'com.google.android.material:material:1.0.0',
+
+            'rxJava': 'io.reactivex.rxjava2:rxjava:2.2.10',
+            'rxAndroid': 'io.reactivex.rxjava2:rxandroid:2.1.1',
+            'rxKotlin': 'io.reactivex.rxjava2:rxkotlin:2.3.0',
+
+            'retroFit': 'com.squareup.retrofit2:retrofit:2.6.1',
+            'retroFitConverterGson': 'com.squareup.retrofit2:converter-gson:2.6.1',
+            'retroFitAdapterRxJava': 'com.squareup.retrofit2:adapter-rxjava2:2.5.0',
+
+            'okHttp3': 'com.squareup.okhttp3:okhttp:3.12.3',
+            'okHttp3LoggingInterceptor': 'com.squareup.okhttp3:logging-interceptor:3.12.0',
+
+            'jSoup': 'org.jsoup:jsoup:1.12.1',
+
+            'junit': 'junit:junit:4.12',
+    ]
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
